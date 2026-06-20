@@ -35,6 +35,13 @@ Paste this into the Stack Environment field:
 LOG_LEVEL=INFO
 AUTH_USE_AUTH=false
 
+HONCHO_API_HOST=127.0.0.1
+HONCHO_API_HOST_PORT=8000
+HONCHO_DB_HOST=127.0.0.1
+HONCHO_DB_HOST_PORT=15432
+HONCHO_VALKEY_HOST=127.0.0.1
+HONCHO_VALKEY_HOST_PORT=16379
+
 LLM_OPENAI_API_KEY=[[HONCHO_BIFROST_API_KEY]]
 
 CACHE_ENABLED=true
@@ -81,7 +88,9 @@ DIALECTIC_LEVELS__max__MODEL_CONFIG__OVERRIDES__BASE_URL=https://bifrost.servrar
 ## Pangolin
 
 Point Pangolin at `http://127.0.0.1:8000` when it runs on the same host as the
-Komodo stack. The compose file binds the API to localhost only.
+Komodo stack. If you change `HONCHO_API_HOST_PORT`, update the Pangolin
+upstream to match. The compose file binds published ports to localhost by
+default.
 
 ## Checks
 
